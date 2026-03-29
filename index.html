@@ -1,0 +1,1600 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Shaik Sharif | Software Developer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --bg: #060910;
+        --bg2: #0c1018;
+        --cyan: #00f5d4;
+        --blue: #4f8ef7;
+        --purple: #a78bfa;
+        --text: #e8edf5;
+        --text2: #8899aa;
+        --border: rgba(0, 245, 212, 0.15);
+        --card: rgba(255, 255, 255, 0.03);
+        --glow: 0 0 30px rgba(0, 245, 212, 0.2);
+      }
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
+      .amb {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(120px);
+        pointer-events: none;
+        z-index: 0;
+      }
+      .a1 {
+        width: 500px;
+        height: 500px;
+        background: rgba(0, 245, 212, 0.06);
+        top: -100px;
+        right: -100px;
+      }
+      .a2 {
+        width: 400px;
+        height: 400px;
+        background: rgba(79, 142, 247, 0.06);
+        bottom: 200px;
+        left: -100px;
+      }
+      .a3 {
+        width: 300px;
+        height: 300px;
+        background: rgba(167, 139, 250, 0.05);
+        top: 50%;
+        left: 40%;
+      }
+      #sp {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--cyan), var(--blue));
+        z-index: 2000;
+      }
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        padding: 18px 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(6, 9, 16, 0.88);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .logo {
+        font-family: "Syne", sans-serif;
+        font-weight: 800;
+        font-size: 1.4rem;
+        color: var(--text);
+      }
+      .logo span {
+        color: var(--cyan);
+      }
+      .navlinks {
+        display: flex;
+        gap: 32px;
+        list-style: none;
+      }
+      .navlinks a {
+        text-decoration: none;
+        color: var(--text2);
+        font-size: 0.86rem;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        transition: color 0.2s;
+        position: relative;
+      }
+      .navlinks a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: var(--cyan);
+        transition: width 0.3s;
+      }
+      .navlinks a:hover {
+        color: var(--cyan);
+      }
+      .navlinks a:hover::after {
+        width: 100%;
+      }
+      .ncta {
+        padding: 8px 20px;
+        border: 1px solid var(--cyan);
+        color: var(--cyan) !important;
+        border-radius: 6px;
+        transition: all 0.2s !important;
+      }
+      .ncta::after {
+        display: none !important;
+      }
+      .ncta:hover {
+        background: var(--cyan) !important;
+        color: #000 !important;
+      }
+      .hbg {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--text);
+        font-size: 1.3rem;
+      }
+      #hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 120px 60px 80px;
+        position: relative;
+        z-index: 1;
+      }
+      .hi {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 60px;
+        align-items: center;
+        width: 100%;
+      }
+      .htag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(0, 245, 212, 0.08);
+        border: 1px solid rgba(0, 245, 212, 0.2);
+        color: var(--cyan);
+        padding: 6px 14px;
+        border-radius: 100px;
+        font-size: 0.76rem;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+        animation: fu 0.6s ease both;
+      }
+      .dot {
+        width: 6px;
+        height: 6px;
+        background: var(--cyan);
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+        display: inline-block;
+      }
+      .hn {
+        font-family: "Syne", sans-serif;
+        font-size: clamp(2.8rem, 6vw, 5.2rem);
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        margin-bottom: 16px;
+        animation: fu 0.6s 0.1s ease both;
+      }
+      .hn .ac {
+        color: var(--cyan);
+      }
+      .hr {
+        font-size: 1.1rem;
+        color: var(--text2);
+        margin-bottom: 28px;
+        font-weight: 300;
+        animation: fu 0.6s 0.2s ease both;
+      }
+      .hr strong {
+        color: var(--text);
+        font-weight: 500;
+      }
+      .hd {
+        font-size: 0.97rem;
+        color: var(--text2);
+        max-width: 520px;
+        line-height: 1.85;
+        margin-bottom: 40px;
+        animation: fu 0.6s 0.3s ease both;
+      }
+      .hbtns {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        animation: fu 0.6s 0.4s ease both;
+      }
+      .bp {
+        padding: 13px 28px;
+        background: var(--cyan);
+        color: #000;
+        font-weight: 700;
+        font-size: 0.88rem;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+      .bp:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(0, 245, 212, 0.35);
+      }
+      .bo {
+        padding: 13px 28px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: var(--text);
+        font-weight: 500;
+        font-size: 0.88rem;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .bo:hover {
+        border-color: var(--cyan);
+        background: rgba(0, 245, 212, 0.06);
+      }
+      .hcard {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 34px 28px;
+        width: 270px;
+        backdrop-filter: blur(10px);
+        animation: fu 0.6s 0.2s ease both;
+        position: relative;
+      }
+      .hcard::before {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border-radius: 20px;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 245, 212, 0.18),
+          transparent,
+          rgba(79, 142, 247, 0.1)
+        );
+        z-index: -1;
+      }
+      .avt {
+        width: 76px;
+        height: 76px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--cyan), var(--blue));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Syne", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: #000;
+        margin: 0 auto 14px;
+      }
+      .cn {
+        font-family: "Syne", sans-serif;
+        font-size: 1.05rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 4px;
+      }
+      .cr {
+        font-size: 0.74rem;
+        color: var(--cyan);
+        text-align: center;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 22px;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .st {
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 10px;
+        padding: 12px;
+        text-align: center;
+      }
+      .sn {
+        font-family: "Syne", sans-serif;
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: var(--cyan);
+      }
+      .sl {
+        font-size: 0.68rem;
+        color: var(--text2);
+        margin-top: 2px;
+      }
+      section {
+        position: relative;
+        z-index: 1;
+      }
+      .con {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 88px 60px;
+      }
+      .slbl {
+        display: inline-block;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--cyan);
+        margin-bottom: 10px;
+      }
+      .stitle {
+        font-family: "Syne", sans-serif;
+        font-size: clamp(1.7rem, 3vw, 2.6rem);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        margin-bottom: 44px;
+        line-height: 1.15;
+      }
+      #about {
+        background: var(--bg2);
+      }
+      .agrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 56px;
+        align-items: start;
+      }
+      .atext p {
+        color: var(--text2);
+        margin-bottom: 18px;
+        font-size: 0.97rem;
+        line-height: 1.85;
+      }
+      .atext p strong {
+        color: var(--text);
+        font-weight: 500;
+      }
+      .adet {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .dr {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        background: var(--card);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 14px 18px;
+        transition: border-color 0.2s;
+      }
+      .dr:hover {
+        border-color: var(--border);
+      }
+      .di {
+        width: 36px;
+        height: 36px;
+        background: rgba(0, 245, 212, 0.1);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--cyan);
+        font-size: 0.85rem;
+        flex-shrink: 0;
+      }
+      .dlbl {
+        font-size: 0.7rem;
+        color: var(--text2);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      .dval {
+        font-size: 0.88rem;
+        color: var(--text);
+        font-weight: 500;
+        margin-top: 2px;
+      }
+      .ltags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 4px;
+      }
+      .ltag {
+        font-size: 0.7rem;
+        padding: 3px 10px;
+        border-radius: 100px;
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text2);
+      }
+      .sw {
+        display: flex;
+        flex-direction: column;
+        gap: 34px;
+      }
+      .sct {
+        font-family: "Syne", sans-serif;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text2);
+        margin-bottom: 14px;
+      }
+      .schips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .sch {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 11px 18px;
+        background: var(--card);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 10px;
+        font-size: 0.86rem;
+        font-weight: 500;
+        transition: all 0.25s;
+        cursor: default;
+      }
+      .sch:hover {
+        border-color: var(--cyan);
+        background: rgba(0, 245, 212, 0.06);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(0, 245, 212, 0.1);
+      }
+      .sbars {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .sbh {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 7px;
+      }
+      .sbn {
+        font-size: 0.88rem;
+        font-weight: 500;
+      }
+      .sbp {
+        font-size: 0.8rem;
+        color: var(--cyan);
+        font-weight: 600;
+      }
+      .sbt {
+        height: 5px;
+        background: rgba(255, 255, 255, 0.07);
+        border-radius: 100px;
+        overflow: hidden;
+      }
+      .sbf {
+        height: 100%;
+        border-radius: 100px;
+        background: linear-gradient(90deg, var(--cyan), var(--blue));
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      #internships {
+        background: var(--bg2);
+      }
+      .tl {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+      }
+      .tl::before {
+        content: "";
+        position: absolute;
+        left: 23px;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background: linear-gradient(to bottom, var(--cyan), transparent);
+      }
+      .tli {
+        display: flex;
+        gap: 30px;
+        padding-bottom: 38px;
+        position: relative;
+      }
+      .tli:last-child {
+        padding-bottom: 0;
+      }
+      .tldot {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: var(--bg2);
+        border: 2px solid var(--cyan);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--cyan);
+        font-size: 0.95rem;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 1;
+      }
+      .tlc {
+        flex: 1;
+        background: var(--card);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 16px;
+        padding: 22px 26px;
+        transition: all 0.25s;
+      }
+      .tlc:hover {
+        border-color: var(--border);
+        box-shadow: var(--glow);
+      }
+      .tlh {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 7px;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+      .tlt {
+        font-family: "Syne", sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+      }
+      .tlb {
+        font-size: 0.7rem;
+        padding: 4px 11px;
+        border-radius: 100px;
+        font-weight: 500;
+        background: rgba(0, 245, 212, 0.1);
+        color: var(--cyan);
+        border: 1px solid rgba(0, 245, 212, 0.2);
+      }
+      .tlo {
+        font-size: 0.82rem;
+        color: var(--cyan);
+        font-weight: 500;
+        margin-bottom: 4px;
+      }
+      .tlp {
+        font-size: 0.76rem;
+        color: var(--text2);
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .tld {
+        font-size: 0.88rem;
+        color: var(--text2);
+        line-height: 1.75;
+      }
+      .tld li {
+        margin-left: 16px;
+        margin-bottom: 3px;
+      }
+      .egrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        gap: 18px;
+      }
+      .ecard {
+        background: var(--card);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 16px;
+        padding: 26px;
+        transition: all 0.25s;
+        position: relative;
+        overflow: hidden;
+      }
+      .ecard::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 100%;
+        background: linear-gradient(to bottom, var(--cyan), var(--blue));
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+      .ecard:hover {
+        border-color: var(--border);
+        transform: translateY(-3px);
+        box-shadow: var(--glow);
+      }
+      .ecard:hover::after {
+        opacity: 1;
+      }
+      .edeg {
+        font-family: "Syne", sans-serif;
+        font-size: 0.92rem;
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+      .esch {
+        font-size: 0.82rem;
+        color: var(--text2);
+        margin-bottom: 14px;
+      }
+      .emeta {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .epill {
+        font-size: 0.72rem;
+        padding: 4px 11px;
+        border-radius: 100px;
+        font-weight: 600;
+      }
+      .ps {
+        background: rgba(0, 245, 212, 0.1);
+        color: var(--cyan);
+      }
+      .py {
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text2);
+      }
+      #certificates {
+        background: var(--bg2);
+      }
+      .cgrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+        gap: 18px;
+      }
+      .ccard {
+        background: var(--card);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 16px;
+        padding: 22px;
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+        transition: all 0.25s;
+      }
+      .ccard:hover {
+        border-color: var(--border);
+        transform: translateY(-3px);
+        box-shadow: var(--glow);
+      }
+      .cico {
+        width: 46px;
+        height: 46px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+      }
+      .ci-py {
+        background: rgba(55, 118, 171, 0.15);
+        color: #3776ab;
+      }
+      .ci-ht {
+        background: rgba(228, 77, 38, 0.15);
+        color: #e44d26;
+      }
+      .ci-cs {
+        background: rgba(38, 77, 228, 0.15);
+        color: #264de4;
+      }
+      .ci-js {
+        background: rgba(247, 223, 30, 0.15);
+        color: #b8a800;
+      }
+      .ci-wb {
+        background: rgba(0, 245, 212, 0.1);
+        color: var(--cyan);
+      }
+      .ci-ds {
+        background: rgba(167, 139, 250, 0.15);
+        color: var(--purple);
+      }
+      .ci-cy {
+        background: rgba(239, 68, 68, 0.15);
+        color: #ef4444;
+      }
+      .ci-an {
+        background: rgba(61, 220, 132, 0.15);
+        color: #3ddc84;
+      }
+      .cnm {
+        font-family: "Syne", sans-serif;
+        font-size: 0.88rem;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      .cis {
+        font-size: 0.75rem;
+        color: var(--cyan);
+        font-weight: 500;
+        margin-bottom: 5px;
+      }
+      .cdt {
+        font-size: 0.7rem;
+        color: var(--text2);
+      }
+      .cwrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 56px;
+        align-items: start;
+      }
+      .cinfo {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .citem {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        background: var(--card);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 12px;
+        padding: 16px 20px;
+        text-decoration: none;
+        color: var(--text);
+        transition: all 0.25s;
+      }
+      .citem:hover {
+        border-color: var(--border);
+        transform: translateX(4px);
+        box-shadow: var(--glow);
+      }
+      .ciico {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: rgba(0, 245, 212, 0.1);
+        color: var(--cyan);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.95rem;
+        flex-shrink: 0;
+      }
+      .cilbl {
+        font-size: 0.7rem;
+        color: var(--text2);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .cival {
+        font-size: 0.87rem;
+        font-weight: 500;
+        margin-top: 2px;
+      }
+      .cform {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .fg {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+      }
+      .fl {
+        font-size: 0.76rem;
+        font-weight: 500;
+        color: var(--text2);
+        letter-spacing: 0.04em;
+      }
+      .fi,
+      .fta {
+        background: var(--card);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        padding: 13px 16px;
+        color: var(--text);
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.88rem;
+        outline: none;
+        transition: border-color 0.2s;
+        width: 100%;
+      }
+      .fi:focus,
+      .fta:focus {
+        border-color: var(--cyan);
+      }
+      .fta {
+        min-height: 115px;
+        resize: vertical;
+      }
+      .fsub {
+        padding: 13px 28px;
+        background: var(--cyan);
+        color: #000;
+        font-weight: 700;
+        font-size: 0.88rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-family: "DM Sans", sans-serif;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        justify-content: center;
+        width: 100%;
+      }
+      .fsub:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(0, 245, 212, 0.35);
+      }
+      footer {
+        background: var(--bg2);
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 36px 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 18px;
+        position: relative;
+        z-index: 1;
+      }
+      .fc {
+        font-size: 0.8rem;
+        color: var(--text2);
+      }
+      .fc span {
+        color: var(--cyan);
+      }
+      .fsc {
+        display: flex;
+        gap: 10px;
+      }
+      .sla {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text2);
+        text-decoration: none;
+        font-size: 0.86rem;
+        transition: all 0.2s;
+      }
+      .sla:hover {
+        border-color: var(--cyan);
+        color: var(--cyan);
+        background: rgba(0, 245, 212, 0.06);
+      }
+      .rv {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .rv.vis {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      @keyframes fu {
+        from {
+          opacity: 0;
+          transform: translateY(22px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.35;
+        }
+      }
+      @media (max-width: 900px) {
+        nav {
+          padding: 16px 22px;
+        }
+        .navlinks {
+          display: none;
+        }
+        .hbg {
+          display: block;
+        }
+        #hero {
+          padding: 100px 22px 60px;
+        }
+        .hi {
+          grid-template-columns: 1fr;
+        }
+        .hcard {
+          width: 100%;
+          max-width: 320px;
+        }
+        .con {
+          padding: 58px 22px;
+        }
+        .agrid,
+        .cwrap {
+          grid-template-columns: 1fr;
+        }
+        footer {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          padding: 26px 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="sp"></div>
+    <div class="amb a1"></div>
+    <div class="amb a2"></div>
+    <div class="amb a3"></div>
+
+    <!-- NAV -->
+    <nav>
+      <div class="logo">SK<span>.</span>Sharif</div>
+      <ul class="navlinks" id="nl">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#internships">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#certificates">Certs</a></li>
+        <li><a href="#contact" class="ncta">Contact</a></li>
+      </ul>
+      <button class="hbg" id="hbg"><i class="fas fa-bars"></i></button>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hi">
+        <div>
+          <div class="htag">
+            <span class="dot"></span>&nbsp; Available for Opportunities
+          </div>
+          <h1 class="hn">Shaik<br /><span class="ac">Sharif</span></h1>
+          <p class="hr">
+            <strong>Software Developer</strong> &nbsp;·&nbsp; Python
+            &nbsp;·&nbsp; Web Development
+          </p>
+          <p class="hd">
+            Computer Science undergraduate passionate about building practical
+            software solutions. Hands-on experience across Python, web
+            development, data science, and cybersecurity — eager to grow and
+            contribute.
+          </p>
+          <div class="hbtns">
+            <a href="#contact" class="bp">Get In Touch</a>
+            <a href="ShaikSharifResume.pdf" download class="bo"
+              ><i class="fas fa-download"></i> Download Resume</a
+            >
+            <a href="https://github.com/Sharif483" target="_blank" class="bo"
+              ><i class="fab fa-github"></i> GitHub</a
+            >
+          </div>
+        </div>
+        <div class="hcard">
+          <div class="avt">SS</div>
+          <div class="cn">Shaik Sharif</div>
+          <div class="cr">Fresher Developer</div>
+          <div class="stats">
+            <div class="st">
+              <div class="sn">4+</div>
+              <div class="sl">Internships</div>
+            </div>
+            <div class="st">
+              <div class="sn">6+</div>
+              <div class="sl">Certs</div>
+            </div>
+            <div class="st">
+              <div class="sn">7.2</div>
+              <div class="sl">CGPA</div>
+            </div>
+            <div class="st">
+              <div class="sn">2026</div>
+              <div class="sl">Graduating</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="con">
+        <span class="slbl rv">01 — About</span>
+        <h2 class="stitle rv">Who I Am</h2>
+        <div class="agrid">
+          <div class="atext rv">
+            <p>
+              I'm a <strong>motivated Computer Science undergraduate</strong> at
+              Eluru College of Engineering and Technology, graduating in 2026.
+              Passionate about writing clean, efficient code and building
+              solutions that make a real impact.
+            </p>
+            <p>
+              Through multiple virtual internships, I've explored diverse
+              domains — from <strong>Data Science and Cybersecurity</strong> to
+              <strong>Android Development and Python scripting</strong>. This
+              breadth has helped me understand how different technologies
+              connect and complement each other.
+            </p>
+            <p>
+              When I'm not coding, I'm solving challenges on competitive
+              platforms and exploring new frameworks in the ever-evolving tech
+              landscape.
+            </p>
+          </div>
+          <div class="adet rv">
+            <div class="dr">
+              <div class="di"><i class="fas fa-graduation-cap"></i></div>
+              <div>
+                <div class="dlbl">Degree</div>
+                <div class="dval">B.Tech — Computer Science Engineering</div>
+              </div>
+            </div>
+            <div class="dr">
+              <div class="di"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <div class="dlbl">Location</div>
+                <div class="dval">Hanuman Junction, Andhra Pradesh, India</div>
+              </div>
+            </div>
+            <div class="dr">
+              <div class="di"><i class="fas fa-envelope"></i></div>
+              <div>
+                <div class="dlbl">Email</div>
+                <div class="dval">sharifshaik2030@gmail.com</div>
+              </div>
+            </div>
+            <div class="dr">
+              <div class="di"><i class="fas fa-language"></i></div>
+              <div>
+                <div class="dlbl">Languages</div>
+                <div class="ltags">
+                  <span class="ltag">Telugu</span><span class="ltag">Urdu</span>
+                  <span class="ltag">Hindi</span
+                  ><span class="ltag">English</span>
+                </div>
+              </div>
+            </div>
+            <div class="dr">
+              <div class="di"><i class="fas fa-heart"></i></div>
+              <div>
+                <div class="dlbl">Interests</div>
+                <div class="dval">Coding Challenges · New Technologies</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="con">
+        <span class="slbl rv">02 — Skills</span>
+        <h2 class="stitle rv">Technical Arsenal</h2>
+        <div class="sw">
+          <div class="rv">
+            <div class="sct">Core Languages</div>
+            <div class="sbars">
+              <div>
+                <div class="sbh">
+                  <span class="sbn">Python</span><span class="sbp">80%</span>
+                </div>
+                <div class="sbt"><div class="sbf" data-w="0.80"></div></div>
+              </div>
+              <div>
+                <div class="sbh">
+                  <span class="sbn">HTML</span><span class="sbp">85%</span>
+                </div>
+                <div class="sbt"><div class="sbf" data-w="0.85"></div></div>
+              </div>
+              <div>
+                <div class="sbh">
+                  <span class="sbn">CSS</span><span class="sbp">80%</span>
+                </div>
+                <div class="sbt"><div class="sbf" data-w="0.80"></div></div>
+              </div>
+              <div>
+                <div class="sbh">
+                  <span class="sbn">JavaScript</span
+                  ><span class="sbp">55%</span>
+                </div>
+                <div class="sbt"><div class="sbf" data-w="0.55"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="rv">
+            <div class="sct">Frameworks &amp; Tools</div>
+            <div class="schips">
+              <div class="sch">🅱️ Bootstrap 5</div>
+              <div class="sch">🔷 OOP Concepts</div>
+              <div class="sch">⚡ VS Code</div>
+              <div class="sch">🐙 Git &amp; GitHub</div>
+              <div class="sch">📱 Responsive Design</div>
+              <div class="sch">🤖 Android (Basics)</div>
+            </div>
+          </div>
+          <div class="rv">
+            <div class="sct">Exposure Areas</div>
+            <div class="schips">
+              <div class="sch">📊 Data Science</div>
+              <div class="sch">🔬 Machine Learning (Basics)</div>
+              <div class="sch">🛡️ Cybersecurity Fundamentals</div>
+              <div class="sch">📈 Matplotlib &amp; Seaborn</div>
+              <div class="sch">🧠 Scikit-learn (Basics)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="internships">
+      <div class="con">
+        <span class="slbl rv">03 — Experience</span>
+        <h2 class="stitle rv">Internships &amp; Training</h2>
+        <div class="tl">
+          <div class="tli rv">
+            <div class="tldot"><i class="fas fa-code"></i></div>
+            <div class="tlc">
+              <div class="tlh">
+                <div class="tlt">Python Intern</div>
+                <span class="tlb">Internship</span>
+              </div>
+              <div class="tlo">Elevate</div>
+              <div class="tlp">
+                <i class="fas fa-calendar-alt"></i>&nbsp; July 2024 – August
+                2024
+              </div>
+              <div class="tld">
+                <ul>
+                  <li>
+                    Hands-on Python training covering data types, control
+                    structures and functions
+                  </li>
+                  <li>
+                    Real-world projects: backend scripting, file handling and
+                    basic automation
+                  </li>
+                  <li>Exposure to APIs and Python coding best practices</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="tli rv">
+            <div class="tldot"><i class="fas fa-chart-bar"></i></div>
+            <div class="tlc">
+              <div class="tlh">
+                <div class="tlt">Data Science Master Internship</div>
+                <span class="tlb">Virtual Internship</span>
+              </div>
+              <div class="tlo">EduSkills</div>
+              <div class="tlp">
+                <i class="fas fa-calendar-alt"></i>&nbsp; 2024
+              </div>
+              <div class="tld">
+                <ul>
+                  <li>
+                    Data preprocessing and visualization using Matplotlib and
+                    Seaborn
+                  </li>
+                  <li>Developed basic ML models using Scikit-learn</li>
+                  <li>
+                    Explored statistical analysis and data pipeline fundamentals
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="tli rv">
+            <div class="tldot"><i class="fas fa-shield-alt"></i></div>
+            <div class="tlc">
+              <div class="tlh">
+                <div class="tlt">Cybersecurity Internship</div>
+                <span class="tlb">Virtual Internship</span>
+              </div>
+              <div class="tlo">EduSkills</div>
+              <div class="tlp">
+                <i class="fas fa-calendar-alt"></i>&nbsp; 2024
+              </div>
+              <div class="tld">
+                <ul>
+                  <li>
+                    Network security fundamentals and ethical hacking basics
+                  </li>
+                  <li>
+                    Practiced on TryHackMe to strengthen cyber defense skills
+                  </li>
+                  <li>
+                    Studied common vulnerabilities and secure coding practices
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="tli rv">
+            <div class="tldot"><i class="fab fa-android"></i></div>
+            <div class="tlc">
+              <div class="tlh">
+                <div class="tlt">Android Development Internship</div>
+                <span class="tlb">Virtual Internship</span>
+              </div>
+              <div class="tlo">EduSkills</div>
+              <div class="tlp">
+                <i class="fas fa-calendar-alt"></i>&nbsp; 2024
+              </div>
+              <div class="tld">
+                <ul>
+                  <li>Android app development using Java and XML</li>
+                  <li>Built apps covering layouts, activities and intents</li>
+                  <li>
+                    Gained familiarity with Android Studio and app lifecycle
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="tli rv">
+            <div class="tldot"><i class="fas fa-globe"></i></div>
+            <div class="tlc">
+              <div class="tlh">
+                <div class="tlt">Web Development Trainee</div>
+                <span class="tlb">Internship</span>
+              </div>
+              <div class="tlo">EduSkills Academy</div>
+              <div class="tlp">
+                <i class="fas fa-calendar-alt"></i>&nbsp; Completed May 2025
+              </div>
+              <div class="tld">
+                <ul>
+                  <li>Practical HTML, CSS and responsive web design</li>
+                  <li>
+                    Built static web pages following industry best practices
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="con">
+        <span class="slbl rv">04 — Education</span>
+        <h2 class="stitle rv">Academic Background</h2>
+        <div class="egrid">
+          <div class="ecard rv">
+            <div class="edeg">B.Tech — Computer Science Engineering</div>
+            <div class="esch">Eluru College of Engineering and Technology</div>
+            <div class="emeta">
+              <span class="epill ps">CGPA: 7.2</span
+              ><span class="epill py">2022 – 2026</span>
+            </div>
+          </div>
+          <div class="ecard rv">
+            <div class="edeg">Senior Secondary (XII)</div>
+            <div class="esch">Sri Chaitanya Junior College</div>
+            <div class="emeta">
+              <span class="epill ps">Score: 83%</span
+              ><span class="epill py">2020 – 2022</span>
+            </div>
+          </div>
+          <div class="ecard rv">
+            <div class="edeg">Secondary (X)</div>
+            <div class="esch">Daniel Memorial English Medium High School</div>
+            <div class="emeta">
+              <span class="epill ps">Score: 95%</span
+              ><span class="epill py">2020</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATES -->
+    <section id="certificates">
+      <div class="con">
+        <span class="slbl rv">05 — Certifications</span>
+        <h2 class="stitle rv">Credentials &amp; Achievements</h2>
+        <div class="cgrid">
+          <div class="ccard rv">
+            <div class="cico ci-py"><i class="fab fa-python"></i></div>
+            <div>
+              <div class="cnm">Python Programming Fundamentals</div>
+              <div class="cis">Aajhub</div>
+              <div class="cdt">
+                <i class="fas fa-calendar"></i> December 2025
+              </div>
+            </div>
+          </div>
+          <div class="ccard rv">
+            <div class="cico ci-ht"><i class="fab fa-html5"></i></div>
+            <div>
+              <div class="cnm">HTML Essential Training</div>
+              <div class="cis">LinkedIn Learning</div>
+              <div class="cdt">
+                <i class="fas fa-certificate"></i> Professional Certificate
+              </div>
+            </div>
+          </div>
+          <div class="ccard rv">
+            <div class="cico ci-cs"><i class="fab fa-css3-alt"></i></div>
+            <div>
+              <div class="cnm">CSS Essential Training</div>
+              <div class="cis">LinkedIn Learning</div>
+              <div class="cdt">
+                <i class="fas fa-certificate"></i> Professional Certificate
+              </div>
+            </div>
+          </div>
+          <div class="ccard rv">
+            <div class="cico ci-js"><i class="fab fa-js-square"></i></div>
+            <div>
+              <div class="cnm">JavaScript Foundations</div>
+              <div class="cis">Mozilla</div>
+              <div class="cdt">
+                <i class="fas fa-certificate"></i> Professional Certificate
+              </div>
+            </div>
+          </div>
+          <div class="ccard rv">
+            <div class="cico ci-wb"><i class="fas fa-laptop-code"></i></div>
+            <div>
+              <div class="cnm">Web Development Training</div>
+              <div class="cis">EduSkills Academy</div>
+              <div class="cdt">
+                <i class="fas fa-calendar"></i> Completed May 2025
+              </div>
+            </div>
+          </div>
+          <div class="ccard rv">
+            <div class="cico ci-ds"><i class="fas fa-brain"></i></div>
+            <div>
+              <div class="cnm">Data Science Master Internship</div>
+              <div class="cis">EduSkills</div>
+              <div class="cdt">
+                <i class="fas fa-certificate"></i> Completion Certificate
+              </div>
+            </div>
+          </div>
+          <div class="ccard rv">
+            <div class="cico ci-cy"><i class="fas fa-shield-alt"></i></div>
+            <div>
+              <div class="cnm">Cybersecurity Fundamentals</div>
+              <div class="cis">EduSkills</div>
+              <div class="cdt">
+                <i class="fas fa-certificate"></i> Completion Certificate
+              </div>
+            </div>
+          </div>
+          <div class="ccard rv">
+            <div class="cico ci-an"><i class="fab fa-android"></i></div>
+            <div>
+              <div class="cnm">Android Development</div>
+              <div class="cis">EduSkills</div>
+              <div class="cdt">
+                <i class="fas fa-certificate"></i> Completion Certificate
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="con">
+        <span class="slbl rv">06 — Contact</span>
+        <h2 class="stitle rv">Let's Connect</h2>
+        <div class="cwrap">
+          <div class="cinfo rv">
+            <a href="tel:+918555936869" class="citem">
+              <div class="ciico"><i class="fas fa-phone"></i></div>
+              <div>
+                <div class="cilbl">Phone</div>
+                <div class="cival">+91 8555936869</div>
+              </div>
+            </a>
+            <a href="mailto:sharifshaik2030@gmail.com" class="citem">
+              <div class="ciico"><i class="fas fa-envelope"></i></div>
+              <div>
+                <div class="cilbl">Email</div>
+                <div class="cival">sharifshaik2030@gmail.com</div>
+              </div>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/sharif-shaik-76a753341"
+              target="_blank"
+              class="citem"
+            >
+              <div class="ciico"><i class="fab fa-linkedin-in"></i></div>
+              <div>
+                <div class="cilbl">LinkedIn</div>
+                <div class="cival">sharif-shaik-76a753341</div>
+              </div>
+            </a>
+            <a
+              href="https://github.com/Sharif483"
+              target="_blank"
+              class="citem"
+            >
+              <div class="ciico"><i class="fab fa-github"></i></div>
+              <div>
+                <div class="cilbl">GitHub</div>
+                <div class="cival">github.com/Sharif483</div>
+              </div>
+            </a>
+            <div class="citem" style="cursor: default">
+              <div class="ciico"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <div class="cilbl">Location</div>
+                <div class="cival">
+                  Indra Nagar, Hanuman Junction, 521105, India
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cform rv">
+            <div class="fg">
+              <label class="fl">Your Name</label
+              ><input class="fi" type="text" placeholder="John Doe" />
+            </div>
+            <div class="fg">
+              <label class="fl">Email Address</label
+              ><input class="fi" type="email" placeholder="john@example.com" />
+            </div>
+            <div class="fg">
+              <label class="fl">Subject</label
+              ><input
+                class="fi"
+                type="text"
+                placeholder="Internship Opportunity"
+              />
+            </div>
+            <div class="fg">
+              <label class="fl">Message</label
+              ><textarea
+                class="fta"
+                placeholder="Hi Sharif, I'd like to discuss..."
+              ></textarea>
+            </div>
+            <button class="fsub" onclick="doSend(this)">
+              <i class="fas fa-paper-plane"></i>&nbsp; Send Message
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="fc">
+        © 2025 <span>Shaik Sharif</span>. Crafted with dedication.
+      </div>
+      <div class="fsc">
+        <a href="https://github.com/Sharif483" target="_blank" class="sla"
+          ><i class="fab fa-github"></i
+        ></a>
+        <a
+          href="https://www.linkedin.com/in/sharif-shaik-76a753341"
+          target="_blank"
+          class="sla"
+          ><i class="fab fa-linkedin-in"></i
+        ></a>
+        <a href="mailto:sharifshaik2030@gmail.com" class="sla"
+          ><i class="fas fa-envelope"></i
+        ></a>
+      </div>
+    </footer>
+
+    <script>
+      // Scroll progress bar
+      window.addEventListener("scroll", () => {
+        const s = document.documentElement.scrollTop;
+        const h =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        document.getElementById("sp").style.width = (s / h) * 100 + "%";
+      });
+
+      // Scroll reveal
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e, i) => {
+            if (e.isIntersecting) {
+              setTimeout(() => e.target.classList.add("vis"), i * 70);
+              obs.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+      document.querySelectorAll(".rv").forEach((el) => obs.observe(el));
+
+      // Skill bars animate
+      const bobs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target
+                .querySelectorAll(".sbf")
+                .forEach((f) => (f.style.transform = `scaleX(${f.dataset.w})`));
+              bobs.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.3 },
+      );
+      document.querySelectorAll(".sbars").forEach((el) => bobs.observe(el));
+
+      // Mobile hamburger
+      document.getElementById("hbg").addEventListener("click", () => {
+        const nl = document.getElementById("nl");
+        const open = nl.style.display === "flex";
+        nl.style.cssText = open
+          ? ""
+          : "display:flex;flex-direction:column;position:fixed;top:60px;left:0;right:0;background:rgba(6,9,16,0.98);padding:24px 30px;gap:18px;border-bottom:1px solid rgba(255,255,255,0.06);z-index:999;";
+      });
+
+      // Contact form
+      function doSend(b) {
+        b.innerHTML = '<i class="fas fa-check"></i>&nbsp; Sent Successfully!';
+        b.style.background = "#22c55e";
+        setTimeout(() => {
+          b.innerHTML = '<i class="fas fa-paper-plane"></i>&nbsp; Send Message';
+          b.style.background = "";
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
